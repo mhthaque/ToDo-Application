@@ -2,7 +2,7 @@ import colorama
 from colorama import Fore
 import json
 
-with open('Test/questions.json', 'r') as file:
+with open('../Test/questions.json', 'r') as file:
     content = file.read()
 
 data = json.loads(content)

@@ -7,14 +7,14 @@ while True:
 
         case 'add':
             todo = input(Fore.LIGHTYELLOW_EX + "Type your To-do : ") + "\n"
-            with open('todos-1.txt', 'r') as file:
+            with open('../todos-1.txt', 'r') as file:
                 todos = file.readlines()
             todos.append(todo)
-            with open('todos-1.txt', 'w') as file:
+            with open('../todos-1.txt', 'w') as file:
                 file.writelines(todos)
 
         case 'show' | 'display':
-            with open('todos-1.txt', 'r') as file:
+            with open('../todos-1.txt', 'r') as file:
                 todos = file.readlines()
             print(Fore.MAGENTA + "Yor list of To-dos : ")
             for i, item in enumerate(todos, 1):
@@ -23,10 +23,10 @@ while True:
         case 'edit':
             input_edit = int(input(Fore.LIGHTMAGENTA_EX + "Enter the number of the Todo to edit : "))
             input_replace = input("Type Your change : ")
-            with open("todos-1.txt", "r") as file:
+            with open("../todos-1.txt", "r") as file:
                 todos = file.readlines()
             todos[input_edit - 1] = input_replace + "\n"
-            with open("todos-1.txt", "w") as file:
+            with open("../todos-1.txt", "w") as file:
                 file.writelines(todos)
 
 
