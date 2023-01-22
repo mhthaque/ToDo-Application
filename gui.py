@@ -10,15 +10,19 @@ add_button = PSG.Button("Add")
 list_box = PSG.Listbox(values=functions.get_todos(), key='todos',
                        enable_events=True, size=[62, 11])
 edit_button = PSG.Button("Edit")
-
+complete_button = PSG.Button('Complete')
+exit_button = PSG.Button("Exit")
 
 """
   window = sg.Window("BelovedHorizon To-Do App", layout=[[label], [input_box, add_button]])
   window = sg.Window("BelovedHorizon To-Do App", layout=[[label], [input_box], [add_button]])
 """
 window = PSG.Window("BelovedHorizon To-Do App",
-                    layout=[[label], [input_box, add_button], [list_box, edit_button]],
-                    font=('Helvetica', 15))
+                    layout=[[label],
+                            [input_box, add_button],
+                            [list_box, edit_button, complete_button],
+                            [exit_button]],
+                    font=('Font Awesome', 15))
 while True:
     event, values = window.read()
     print(1, event)
@@ -40,8 +44,16 @@ while True:
             todos[index] = new_todo
             functions.write_todos(todos)
             window["todos"].update(values=todos)
-
             todos = functions.get_todos()
+        case 'Complete':
+            todo_to_complete = values['todos'][0]
+            todos = functions.get_todos()
+            todos.remove(todo_to_complete)
+            functions.write_todos(todos)
+            window["todos"].update(values=todos)
+            window["todo"].update(value="")
+        case "Exit":
+            break
         case 'todos':
             window['todo'].update(value=values['todos'][0])
 
