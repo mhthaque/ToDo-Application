@@ -1,8 +1,12 @@
 import functions
-import colorama
 import time
 import PySimpleGUI as PSG
+import os
 PSG.theme('DarkTeal2')
+
+if not os.path.exists('todos-1.txt'):
+    with open("todos-1.txt", mode="w") as file:
+        pass
 
 clock = PSG.Text("", key="clock")
 label = PSG.Text("Type your To-Do Here : ", text_color='white')

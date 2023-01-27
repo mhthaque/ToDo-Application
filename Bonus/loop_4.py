@@ -6,14 +6,14 @@ while True:
 
     if 'add' in user_action:
         todo = "\n" + user_action[3:]
-        with open('../todos-1.txt', 'r') as file:
+        with open('../Todo-app/todos-1.txt', 'r') as file:
             todos = file.readlines()
         todos.append(todo)
-        with open('../todos-1.txt', 'w') as file:
+        with open('../Todo-app/todos-1.txt', 'w') as file:
             file.writelines(todos)
 
     elif 'show' in user_action:
-        with open('../todos-1.txt', 'r') as file:
+        with open('../Todo-app/todos-1.txt', 'r') as file:
             todos = file.readlines()
         print(Fore.MAGENTA + "Yor list of To-dos : ")
         for i, item in enumerate(todos, 1):
@@ -22,10 +22,10 @@ while True:
     elif 'edit' in user_action:
         input_replace = input(Fore.LIGHTCYAN_EX + "Enter Todo to replace : ")
         number = user_action[5:]
-        with open("../todos-1.txt", "r") as file:
+        with open("../Todo-app/todos-1.txt", "r") as file:
             todos = file.readlines()
         todos[int(number) - 1] = input_replace + "\n"
-        with open("../todos-1.txt", "w") as file:
+        with open("../Todo-app/todos-1.txt", "w") as file:
             file.writelines(todos)
 
     elif 'delete' in user_action:

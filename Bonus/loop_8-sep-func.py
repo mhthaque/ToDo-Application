@@ -1,4 +1,3 @@
-import colorama
 from colorama import Fore
 
 from functions import get_todos, write_todos
